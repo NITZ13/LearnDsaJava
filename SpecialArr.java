@@ -4,54 +4,29 @@ public class SpecialArr {
 	public static void main(String[] args) {
 		class Solution {
 		    public int specialArray(int[] nums) {
-		        int n = nums.length;
-		        for (int i = 0; i <= n; i++) {
-		            int count = 0;
-		            for (int j = 0; j < n; j++) {
-		                if (nums[j] >= i) {
-		                    count++;
+		        int ans=-1;
+		        for(int i=1;i<=nums.length;i++){
+		            int k=0;
+		            for(int j=0;j<=nums.length-1;j++){
+		                  if(i==nums[j]){
+		                    k++;
 		                }
-		            }
-		            if (count == i) {
-		                return i;
-		            }
-		        }
-		        return -1;
-		    }
+		                 if(i<nums[j]){
+		                    k++;
+		                }
+		                 /*if(i>nums[j]){
+		                    continue;
+		                }*/
+		            }//eof
+		             
+		            if(k>0 && i==k){
+		          ans=k; }
+		            
+		       }//eof
+		        
+		    return ans;  }
 		}
-		//this code didnt work
-		/*
-		 class Solution {
-    
-    public int specialArray(int[] nums) {
-        Arrays.sort(nums);
-        int ans=0;
-        for(int i=0;i<=nums.length-1;i++){
-
-            int k=0;
-            for(int j=0;j<=nums.length-1;j++){
-                
-                if(nums[i]==nums[j]){
-                    k++;
-                }
-                 if(nums[i]<nums[j]){
-                    k++;
-                }
-                 if(nums[i]>nums[j]){
-                    continue;
-                }
-                
-            }
-            
-     if(k>0 && nums[i]>0){
-      if(k>ans){
-          ans=k;
-      }
-      return ans;} 
-     }
-    
-   return -1; }
-   */
 	}
 
 }
+
